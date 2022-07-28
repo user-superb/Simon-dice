@@ -1,0 +1,45 @@
+#simon{
+    display: flex;
+    justify-content: center;
+}
+
+#color1{
+    height: 100px;
+    width: 100px;
+    background-color: rgb(0, 255, 55);
+
+}
+
+#color2{
+    height: 100px;
+    width: 100px;
+    background-color: rgb(255, 0, 0);
+
+}
+
+#color3{
+    height: 100px;
+    width: 100px;
+    background-color: rgb(241, 237, 0);
+
+}
+
+#color4{
+    height: 100px;
+    width: 100px;
+    background-color: rgb(17, 0, 252);
+
+}
+
+#iniciar{
+    display: flex;
+    justify-content: center;
+}
+
+.apagar{
+    filter:brightness(50%);
+}
+
+.ocultar {
+    display: none;
+}

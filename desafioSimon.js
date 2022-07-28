@@ -27,7 +27,7 @@
 
     let movimientoActual = 0;
 
-    const velocidad = 1000;
+    const velocidad = 500;
     const velocidad_delay = 500;
     const velocidad_click = 100;
 
@@ -37,9 +37,7 @@
 
     function jugadorPierde(){
         $estado.textContent = 'Perdiste! Haz click para comenzar de nuevo'
-        $estado.classList.remove('ocultar');
-
-        $iniciar.parentElement.classList.remove('ocultar');
+        $iniciar.removeAttribute('disabled');
 
         movimientoActual = 0;
 
@@ -66,6 +64,7 @@
 
     async function prenderColores(colores, orden){
         $estado.textContent = '...';
+        puedeClickear = false;
         while (orden.length > 0){
             await delay(velocidad_delay);
             await prender(colores[orden[0]].elem, velocidad);
@@ -73,7 +72,7 @@
         }
         puedeClickear = true;
         $estado.textContent = 'Tu turno!';
-        console.log('Terminado!');
+        console.log(`Movimientos: ${ordenOriginal.length}`)
     };
 
     // Asignar onclick a los colores

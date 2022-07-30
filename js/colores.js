@@ -7,16 +7,16 @@ const $color4 = document.querySelector('#color4');
 
 const $estado = document.querySelector('#estado');
 
-class color {
-    constructor(elem, pos){
-        this.elem = elem;
-        this.pos = pos;
+class Color {
+    constructor(elemento, posicion){
+        this.elemento = elemento;
+        this.posicion = posicion;
     }
 };
 
-const color1 = new color($color1, 0);
-const color2 = new color($color2, 1);
-const color3 = new color($color3, 2);
-const color4 = new color($color4, 3);
+const color1 = new Color($color1, 0);
+const color2 = new Color($color2, 1);
+const color3 = new Color($color3, 2);
+const color4 = new Color($color4, 3);
 
 const colores = [color1, color2, color3, color4];

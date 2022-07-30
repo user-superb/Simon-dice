@@ -20,9 +20,9 @@
 
     let movimientoActual = 0;
 
-    const velocidad = 500;
-    const velocidad_delay = 500;
-    const velocidad_click = 100;
+    const duracion = 500;
+    const duracionRetraso = 500;
+    const duracionClick = 100;
 
     function generarNumero(min, max){
         return Math.floor(Math.random() * (max - min + 1) + min);
@@ -37,13 +37,13 @@
         ordenOriginal = [];
     };
 
-    function prender(color, velocidad){
+    function prender(color, duracion){
         return new Promise((resolve) => {
             color.classList.remove('apagar');
             setTimeout(() => {
                 color.classList.add('apagar');
                 resolve();
-            }, velocidad);
+            }, duracion);
         });
     };
 
@@ -59,8 +59,8 @@
         $estado.textContent = '...';
         puedeClickear = false;
         while (orden.length > 0){
-            await retrasar(velocidadRetraso);
-            await prender(colores[orden[0]].elemento, velocidad);
+            await retrasar(duracionRetraso);
+            await prender(colores[orden[0]].elemento, duracion);
             orden.shift();
         }
         puedeClickear = true;
@@ -70,7 +70,7 @@
     colores.forEach(color => {
         color.elemento.onclick = (event) => {
             if (puedeClickear){
-                prender(color.elemento, velocidadClick); 
+                prender(color.elemento, duracionClick); 
                 if (color.posicion == ordenOriginal[movimientoActual]){
                     movimientoActual++;
                 } else if (color.posicion !== ordenOriginal[movimientoActual]){
@@ -97,6 +97,4 @@
         ordenOriginal.push(generarNumero(0,3));
         orden = ordenOriginal.slice();
         prenderColores(colores, orden);
-
-        event.preventDefault();
     };

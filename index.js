@@ -32,7 +32,7 @@
         });
     };
 
-    function delay(duracion){
+    function retrasar(duracion){
         return new Promise((resolve) => {
             setTimeout(() => {
                 resolve();
@@ -44,7 +44,7 @@
         $estado.textContent = '...';
         puedeClickear = false;
         while (orden.length > 0){
-            await delay(velocidad_delay);
+            await retrasar(velocidad_delay);
             await prender(colores[orden[0]].elem, velocidad);
             orden.shift();
         }

@@ -13,7 +13,7 @@
         return Math.floor(Math.random() * (max - min + 1) + min);
     };
 
-    function jugadorPierde(){
+    function perder(){
         $estado.textContent = 'Perdiste! Haz click para comenzar de nuevo'
         $iniciar.removeAttribute('disabled');
 
@@ -60,7 +60,7 @@
                 if (color.pos == ordenOriginal[movimientoActual]){
                     movimientoActual++;
                 } else if (color.pos !== ordenOriginal[movimientoActual]){
-                    jugadorPierde();
+                    perder();
                     return;
                 };
                 if (movimientoActual == ordenOriginal.length) {

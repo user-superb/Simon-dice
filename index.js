@@ -1,5 +1,7 @@
     const $iniciar = document.querySelector('#iniciar');
     const $estado = document.querySelector('#estado');
+    const $puntos = document.querySelector('#puntos');
+    const $record = document.querySelector('#record');
 
     const $color1 = document.querySelector('#color1');
     const $color2 = document.querySelector('#color2');
@@ -24,14 +26,32 @@
     const duracionRetraso = 500;
     const duracionClick = 100;
 
+    let puntosActuales = 0;
+    let puntosRecord = 0;
+
     function generarNumero(min, max){
         return Math.floor(Math.random() * (max - min + 1) + min);
+    };
+
+    function actualizarPuntos(puntos){
+        puntosActuales += puntos;
+        $puntos.textContent = `Puntuacion actual: ${puntosActuales}`;
+    };
+
+    function verificarRecord(){
+        if (puntosActuales > puntosRecord) {
+            puntosRecord = puntosActuales;
+            $record.textContent = `Record: ${puntosRecord}`;
+        };
     };
 
     function perder(){
         $estado.textContent = 'Perdiste! Haz click para comenzar de nuevo'
         $iniciar.removeAttribute('disabled');
 
+        verificarRecord();
+
+        puntosActuales = 0;
         movimientoActual = 0;
 
         ordenOriginal = [];
@@ -78,7 +98,8 @@
                     return;
                 };
                 if (movimientoActual == ordenOriginal.length) {
-                    movimientoActual = 0;
+                    actualizarPuntos(movimientoActual);
+                    movimientoActual = 0;             
 
                     ordenOriginal.push(generarNumero(0,3));
                     orden = ordenOriginal.slice();
@@ -93,6 +114,8 @@
 
         puedeClickear = false;
         movimientoActual = 0;
+
+        actualizarPuntos(0);
 
         ordenOriginal.push(generarNumero(0,3));
         orden = ordenOriginal.slice();

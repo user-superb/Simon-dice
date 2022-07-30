@@ -1,4 +1,13 @@
+#info{
+    text-align: center;
+}
+
 #simon{
+    display: flex;
+    justify-content: center;
+}
+
+#panel{
     display: flex;
     justify-content: center;
 }
@@ -29,11 +38,6 @@
     width: 100px;
     background-color: rgb(17, 0, 252);
 
-}
-
-#iniciar{
-    display: flex;
-    justify-content: center;
 }
 
 .apagar{

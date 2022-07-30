@@ -44,22 +44,21 @@
         $estado.textContent = '...';
         puedeClickear = false;
         while (orden.length > 0){
-            await retrasar(velocidad_delay);
-            await prender(colores[orden[0]].elem, velocidad);
+            await retrasar(velocidadRetraso);
+            await prender(colores[orden[0]].elemento, velocidad);
             orden.shift();
         }
         puedeClickear = true;
         $estado.textContent = 'Tu turno!';
     };
 
-    // Asignar onclick a los colores
     colores.forEach(color => {
-        color.elem.onclick = () => {
+        color.elemento.onclick = (event) => {
             if (puedeClickear){
-                prender(color.elem, velocidad_click); 
-                if (color.pos == ordenOriginal[movimientoActual]){
+                prender(color.elemento, velocidadClick); 
+                if (color.posicion == ordenOriginal[movimientoActual]){
                     movimientoActual++;
-                } else if (color.pos !== ordenOriginal[movimientoActual]){
+                } else if (color.posicion !== ordenOriginal[movimientoActual]){
                     perder();
                     return;
                 };

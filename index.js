@@ -46,8 +46,8 @@
     };
 
     function perder(){
-        $estado.textContent = 'Perdiste! Haz click para comenzar de nuevo'
-        $iniciar.removeAttribute('disabled');
+        $estado.textContent = 'Perdiste! Haz click para comenzar de nuevo '
+        $iniciar.removeAttribute('hidden');
 
         verificarRecord();
 
@@ -110,7 +110,7 @@
     });
 
     $iniciar.onclick = (event) => {
-        $iniciar.setAttribute('disabled','');
+        $iniciar.setAttribute('hidden','');
 
         puedeClickear = false;
         movimientoActual = 0;

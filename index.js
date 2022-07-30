@@ -50,7 +50,6 @@
         }
         puedeClickear = true;
         $estado.textContent = 'Tu turno!';
-        console.log(`Movimientos: ${ordenOriginal.length}`)
     };
 
     // Asignar onclick a los colores
@@ -65,8 +64,6 @@
                     return;
                 };
                 if (movimientoActual == ordenOriginal.length) {
-                    console.log('bien papu');
-
                     movimientoActual = 0;
 
                     ordenOriginal.push(generarNumero(0,3));
